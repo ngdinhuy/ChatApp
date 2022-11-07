@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/splashFragment2"
+    >
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.firebase_.ui.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.firebase_.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.firebase_.ui.auth.SignUpFragment"
+        android:label="SignUpFragment" />
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.example.firebase_.ui.Splash.SplashFragment"
+        android:label="fragment_splash_"
+        tools:layout="@layout/fragment_splash_" >
+        <action
+            android:id="@+id/action_splashFragment2_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <action android:id="@+id/action_global_splashFragment2" app:destination="@id/splashFragment2" />
+    <action android:id="@+id/action_global_loginFragment" app:destination="@id/loginFragment" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.firebase_.ui.home.UserFragment"
+        android:label="UserFragment" >
+        <argument
+            android:name="user"
+            app:argType="com.example.firebase_.model.User" />
+    </fragment>
+    <include app:graph="@navigation/home_nav" />
+</navigation>
